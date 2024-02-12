@@ -9,6 +9,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const { register, login } = require("./api/auth/controllers");
 const authRoutes = require("./api/auth/routes");
+const tripRoutes = require("./api/trips/routes");
 connectDb();
 app.use(express.json());
 app.use(morgan("dev"));
@@ -21,6 +22,7 @@ app.use(cors());
 
 app.use("/api", authRoutes);
 
+app.use("/api", tripRoutes);
 //not found handler
 app.use(notFoundHandler);
 
