@@ -33,7 +33,7 @@ deleteTrip = async (req, res, next) => {
 updateTrip = async (req, res, next) => {
   const { _id } = req.params;
   try {
-    await Trip.findByIdAndUpdate({ _id });
+    await Trip.findByIdAndUpdate(_id, req.body);
     res.status(204).end();
   } catch (error) {
     next(error);
@@ -48,6 +48,7 @@ getAllTrips = async (req, res, next) => {
     next(error);
   }
 };
+
 module.exports = {
   getAllTrips,
   updateTrip,

@@ -52,7 +52,13 @@ const login = async (req, res, next) => {
     next(err);
   }
 };
-
-module.exports = { register, login };
+const getMyProfile = async (req, res, next) => {
+  try {
+    return res.status(200).json({ username: req.user.username });
+  } catch (error) {
+    next(error);
+  }
+};
+module.exports = { register, login, getMyProfile };
 
 ////
