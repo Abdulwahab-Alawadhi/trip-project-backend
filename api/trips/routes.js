@@ -10,6 +10,7 @@ const router = express.Router();
 
 router.get("/trips", getAllTrips);
 
+// TOKEN JWT
 router.post("/trips", createTrip);
 
 router.put("/trips/:_id", updateTrip);
