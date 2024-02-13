@@ -14,7 +14,7 @@ createTrip = async (req, res, next) => {
   try {
     // req.body.user = req.user._id
     if (req.file) {
-      req.body.image = req.file.path.replace("\\", "/");
+      req.body.image = req.file.path;
     }
     const newTrip = await Trip.create(req.body);
     res.status(201).json(newTrip);

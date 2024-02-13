@@ -1,3 +1,4 @@
+const upload = require("../../middlewares/multer");
 const {
   getAllTrips,
   createTrip,
@@ -11,7 +12,7 @@ const router = express.Router();
 router.get("/trips", getAllTrips);
 
 // TOKEN JWT
-router.post("/trips", createTrip);
+router.post("/trips", upload.single("image"), createTrip);
 
 router.put("/trips/:_id", updateTrip);
 
